@@ -3,8 +3,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "precommit": "ng e2e frontend-e2e",
-    "prepush": "ng e2e frontend-e2e",
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
@@ -30,6 +28,13 @@
     "help": "nx help"
   },
   "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "ng e2e frontend-e2e",
+      "pre-push": "ng e2e frontend-e2e"
+    }
+  },
+
   "dependencies": {
     "@nrwl/angular": "10.0.12",
     "@angular/animations": "^10.0.0",
